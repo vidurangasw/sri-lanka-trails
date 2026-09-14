@@ -89,7 +89,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
-          <p>© {currentYear} Sri Lanka Trails. All rights reserved.</p>
+          <p>© {currentYear} Sri Lanka Trails. All Rights Reserved.</p>
           <p>
             Made with ❤️ for travelers worldwide
           </p>
