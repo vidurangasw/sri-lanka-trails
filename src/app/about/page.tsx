@@ -5,30 +5,31 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'About Us',
   description:
-    'Meet the team behind Sri Lanka Trails — passionate travelers and storytellers dedicated to helping you discover the magic of Sri Lanka.',
+    'Learn about Sri Lanka Trails — a travel guide dedicated to helping you discover the real beauty of Sri Lanka, from ancient temples to pristine beaches.',
 };
 
 export default function AboutPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+
       {/* Header */}
       <header className="text-center mb-16">
         <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4">
-          About <span className="text-emerald-600">Us</span>
+          About <span className="text-emerald-600">Sri Lanka Trails</span>
         </h1>
         <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-          We are passionate travelers, storytellers, and Sri Lanka enthusiasts dedicated
-          to helping you experience this extraordinary island.
+          A travel guide built by Sri Lankans, for travelers who want to
+          experience the island beyond the tourist brochures.
         </p>
       </header>
 
-      {/* Author section */}
+      {/* Hero section — brand story */}
       <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
         <div className="relative">
           <div className="relative w-72 h-72 mx-auto">
             <Image
-              src="/images/author.jpg"
-              alt="Priya Mendis — Founder of Sri Lanka Trails"
+              src="/images/hero-banner.jpg"
+              alt="Scenic landscape of Sri Lanka — tea plantations and ancient temples"
               fill
               className="rounded-3xl object-cover shadow-2xl"
             />
@@ -39,21 +40,24 @@ export default function AboutPage() {
 
         <div>
           <span className="text-sm font-semibold text-emerald-600 uppercase tracking-wider">
-            Founder & Lead Writer
+            Our Story
           </span>
-          <h2 className="text-3xl font-bold text-gray-900 mt-2 mb-4">Priya Mendis</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mt-2 mb-4">
+            Born from a Love of Sri Lanka
+          </h2>
           <p className="text-gray-600 leading-relaxed mb-4">
-            Born and raised in Colombo, Priya has spent over a decade traveling every corner
-            of Sri Lanka — from the misty highlands of Nuwara Eliya to the sun-soaked beaches
-            of Mirissa. She started Sri Lanka Trails to share the raw, unfiltered beauty of
-            the island she calls home.
+            Sri Lanka Trails was created by a small team of local travel enthusiasts
+            who grew up exploring every corner of this island — from the misty highlands
+            of Ella to the ancient ruins of Polonnaruwa, and the golden shores of
+            Mirissa to the wild jungles of Wilpattu.
           </p>
           <p className="text-gray-600 leading-relaxed mb-6">
-            With a background in journalism and a camera always in hand, Priya brings you
-            honest, in-depth travel guides that go beyond the tourist brochures.
+            We noticed that most online travel resources gave generic, outdated advice.
+            So we built the guide we always wished existed — honest, detailed, and written
+            by people who actually live here.
           </p>
           <div className="flex flex-wrap gap-3">
-            {['Photography', 'Culture', 'Food', 'Adventure', 'Sustainability'].map((tag) => (
+            {['Nature', 'Culture', 'Food', 'Adventure', 'Sustainability', 'History'].map((tag) => (
               <span
                 key={tag}
                 className="px-3 py-1 text-sm bg-emerald-100 text-emerald-700 rounded-full font-medium"
@@ -65,21 +69,37 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* Mission */}
-      <section className="bg-gray-50 rounded-3xl p-10 mb-16" aria-labelledby="mission-heading">
-        <h2 id="mission-heading" className="text-2xl font-bold text-gray-900 mb-4 text-center">
-          Our Mission
+      {/* What we offer */}
+      <section className="bg-gray-50 rounded-3xl p-10 mb-16" aria-labelledby="offer-heading">
+        <h2 id="offer-heading" className="text-2xl font-bold text-gray-900 mb-4 text-center">
+          What You Will Find Here
         </h2>
-        <p className="text-gray-600 leading-relaxed text-center max-w-3xl mx-auto text-lg">
-          Sri Lanka Trails exists to be the most trusted, comprehensive, and beautifully crafted
-          travel resource for Sri Lanka. We believe every traveler deserves accurate, up-to-date
-          information — whether you are planning a luxury honeymoon or a budget backpacking trip.
+        <p className="text-gray-600 leading-relaxed text-center max-w-3xl mx-auto text-lg mb-10">
+          Sri Lanka Trails covers everything a traveler needs — whether you are
+          planning a 3-day trip or a month-long adventure across the whole island.
         </p>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {[
+            { icon: '🗺️', title: 'Destination Guides', desc: 'In-depth guides to every region, city, and hidden gem' },
+            { icon: '📅', title: 'Itineraries', desc: 'Ready-to-use trip plans for every budget and duration' },
+            { icon: '🍛', title: 'Food & Culture', desc: 'What to eat, where to eat, and local customs to respect' },
+            { icon: '💡', title: 'Practical Tips', desc: 'Visas, transport, costs, safety — everything practical' },
+          ].map((item) => (
+            <div
+              key={item.title}
+              className="p-5 rounded-2xl bg-white border border-gray-100 hover:border-emerald-200 hover:shadow-md transition-all duration-200 text-center"
+            >
+              <div className="text-3xl mb-3">{item.icon}</div>
+              <h3 className="font-bold text-gray-900 mb-1 text-sm">{item.title}</h3>
+              <p className="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
-      {/* Values */}
-      <section aria-labelledby="values-heading">
-        <h2 id="values-heading" className="text-2xl font-bold text-gray-900 mb-8 text-center">
+      {/* Mission */}
+      <section className="mb-16" aria-labelledby="mission-heading">
+        <h2 id="mission-heading" className="text-2xl font-bold text-gray-900 mb-8 text-center">
           What We Stand For
         </h2>
         <div className="grid sm:grid-cols-3 gap-6">
@@ -87,17 +107,17 @@ export default function AboutPage() {
             {
               icon: '🤝',
               title: 'Authenticity',
-              desc: 'Every guide is based on real, personal experience — never copied or AI-generated fluff.',
+              desc: 'Every guide is based on real, on-the-ground experience. We write what we know.',
             },
             {
               icon: '🌿',
               title: 'Sustainability',
-              desc: 'We promote eco-friendly travel that respects local communities and the environment.',
+              desc: 'We promote responsible travel that respects local communities and the environment.',
             },
             {
-              icon: '🗺️',
-              title: 'Depth',
-              desc: 'We go beyond the surface to give you the information you actually need to travel confidently.',
+              icon: '🎯',
+              title: 'Accuracy',
+              desc: 'We keep our guides up to date so you never show up with outdated information.',
             },
           ].map((val) => (
             <div
@@ -112,8 +132,25 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Disclaimer — important for AdSense */}
+      <section className="bg-emerald-50 border border-emerald-200 rounded-2xl p-8 mb-16" aria-labelledby="disclaimer-heading">
+        <h2 id="disclaimer-heading" className="text-lg font-bold text-emerald-900 mb-3">
+          Editorial Independence & Transparency
+        </h2>
+        <p className="text-sm text-emerald-800 leading-relaxed">
+          Sri Lanka Trails is an independent travel publication. Our content reflects our
+          genuine opinions and experiences. Some articles may contain affiliate links or
+          sponsored content — these are always clearly disclosed. We may also display
+          third-party advertisements through Google AdSense. Advertising relationships
+          never influence our editorial recommendations.
+        </p>
+      </section>
+
       {/* CTA */}
-      <div className="text-center mt-16">
+      <div className="text-center">
+        <p className="text-gray-500 mb-6">
+          Questions, suggestions, or interested in collaborating?
+        </p>
         <Link
           href="/contact"
           className="inline-block px-8 py-4 bg-emerald-600 text-white font-semibold rounded-xl hover:bg-emerald-500 transition-colors"
@@ -121,6 +158,7 @@ export default function AboutPage() {
           Get in Touch →
         </Link>
       </div>
+
     </div>
   );
 }
