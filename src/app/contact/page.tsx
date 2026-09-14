@@ -1,17 +1,15 @@
 'use client';
 
-import type { Metadata } from 'next';
 import { useState } from 'react';
-
-// Note: metadata export doesn't work in client components; moved to a
-// separate layout or use the generateMetadata pattern in a server wrapper.
-// For this page we rely on the root layout metadata + page-level title.
 
 const contactDetails = [
   { icon: '📧', label: 'Email', value: 'hello@srilankatrails.com', href: 'mailto:hello@srilankatrails.com' },
   { icon: '📍', label: 'Location', value: 'Colombo, Sri Lanka', href: null },
   { icon: '🕐', label: 'Response Time', value: 'Within 24–48 hours', href: null },
 ];
+
+// ✅ Replace YOUR_FORM_ID with your Formspree form ID from formspree.io
+const FORMSPREE_ID = 'YOUR_FORM_ID';
 
 export default function ContactPage() {
   const [formState, setFormState] = useState({
@@ -21,6 +19,8 @@ export default function ContactPage() {
     message: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -28,10 +28,28 @@ export default function ContactPage() {
     setFormState((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Connect to a form backend (e.g. Formspree, Netlify Forms, or custom API)
-    setSubmitted(true);
+    setLoading(true);
+    setError('');
+
+    try {
+      const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formState),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        setError('Something went wrong. Please try again or email us directly.');
+      }
+    } catch {
+      setError('Network error. Please check your connection and try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -185,10 +203,15 @@ export default function ContactPage() {
               <button
                 id="contact-submit"
                 type="submit"
-                className="w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-emerald-500/20 hover:-translate-y-0.5"
+                disabled={loading}
+                className="w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 disabled:bg-emerald-300 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-emerald-500/20 hover:-translate-y-0.5"
               >
-                Send Message →
+                {loading ? 'Sending...' : 'Send Message →'}
               </button>
+
+              {error && (
+                <p className="text-sm text-red-500 text-center">{error}</p>
+              )}
 
               <p className="text-xs text-gray-400 text-center">
                 By submitting this form you agree to our{' '}
