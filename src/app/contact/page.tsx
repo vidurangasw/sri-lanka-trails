@@ -3,7 +3,7 @@
 import { useState } from 'react';
 
 const contactDetails = [
-  { icon: '📧', label: 'Email', value: 'hello@srilankatrails.com', href: 'mailto:hello@srilankatrails.com' },
+  // { icon: '📧', label: 'Email', value: 'hello@srilankatrails.com', href: 'mailto:hello@srilankatrails.com' },
   { icon: '📍', label: 'Location', value: 'Colombo, Sri Lanka', href: null },
   { icon: '🕐', label: 'Response Time', value: 'Within 24–48 hours', href: null },
 ];
