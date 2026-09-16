@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import remarkGfm from 'remark-gfm';
 import { format } from 'date-fns';
 import { getAllSlugs, getPostBySlug, getAllPosts } from '@/lib/posts';
 import { getMDXComponents } from '@/components/mdx/MDXComponents';
@@ -162,7 +163,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           "
           itemProp="articleBody"
         >
-          <MDXRemote source={post.content} components={components} />
+          <MDXRemote
+            source={post.content}
+            components={components}
+            options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+          />
         </div>
 
         {/* ─── AdSense in-content — bottom of article ─── */}
