@@ -77,9 +77,11 @@ Kalametiya is located near the village of **Hungama** in the Hambantota district
 
 | Travel Style | Estimated Cost |
 |---|---|
-| **Budget** (local bus + shared catamaran) | ~USD $25 |
-| **Mid-range** (private tuk-tuk + shared boat) | ~USD $45–60 |
-| **Luxury** (private A/C transfer + private guided charter) | ~USD $100 |
+| **Budget** (local bus + shared catamaran) | ~USD $25 * |
+| **Mid-range** (private tuk-tuk + shared boat) | ~USD $45–60 * |
+| **Luxury** (private A/C transfer + private guided charter) | ~USD $100 * |
+
+*\* Prices are approximate estimates and may vary depending on season, fuel costs, operator, and exchange rates. Always confirm current prices locally before your trip.*
 
 ---
 

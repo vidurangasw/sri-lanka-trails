@@ -62,9 +62,11 @@ Mulkirigala is incredibly easy to reach, making it the perfect **half-day trip**
 
 | Travel Style | Estimated Cost |
 |---|---|
-| **Budget** (bus + tuk-tuk) | ~USD $10 |
-| **Mid-range** (private taxi, no guide) | ~USD $40–50 |
-| **Comfort** (private A/C car + guided tour) | ~USD $80 |
+| **Budget** (bus + tuk-tuk) | ~USD $10 * |
+| **Mid-range** (private taxi, no guide) | ~USD $40–50 * |
+| **Comfort** (private A/C car + guided tour) | ~USD $80 * |
+
+*\* Prices are approximate estimates and may vary depending on season, fuel costs, operator, and exchange rates. Always confirm current prices locally before your trip.*
 
 ## Tips for the Perfect Visit
 
